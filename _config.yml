@@ -103,4 +103,4 @@ theme: butterfly
 deploy:
   type: git
   repo: git@github.com:xu756/blog.git
-  branch: master
+  branch: public
