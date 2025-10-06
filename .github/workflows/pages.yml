@@ -14,19 +14,15 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           # If your repository depends on submodule, please see: https://github.com/actions/checkout
           submodules: recursive
-      - name: Use Node.js 22
-        uses: actions/setup-node@v4
+      # 使用npm安装依赖
+      - uses: pnpm/action-setup@v2
         with:
-          # Examples: 20, 18.19, >=16.20.2, lts/Iron, lts/Hydrogen, *, latest, current, node
-          # Ref: https://github.com/actions/setup-node#supported-version-syntax
-          node-version: "22"
-      - name: Cache NPM dependencies
-        uses: actions/cache@v4
+          version: 10.6.3
+      - uses: actions/setup-node@v4
         with:
-          path: node_modules
-          key: ${{ runner.OS }}-pnpm-cache
-          restore-keys: |
-            ${{ runner.OS }}-pnpm-cache
+          node-version: 22
+          cache: 'pnpm'
+          cache-dependency-path: './pnpm-lock.yaml'
       - name: Install Dependencies
         run: pnpm install
       - name: Build
