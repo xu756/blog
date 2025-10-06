@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "hexo": "^8.0.0",
+    "hexo-algoliasearch": "^2.0.1",
     "hexo-asset-img": "1.2.0",
     "hexo-bilibili-bangumi": "^2.0.1",
     "hexo-butterfly-envelope": "^1.0.15",

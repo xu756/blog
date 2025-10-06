@@ -25,6 +25,10 @@ jobs:
           cache-dependency-path: './pnpm-lock.yaml'
       - name: Install Dependencies
         run: pnpm install
+      - name: algolia
+        run: pnpm hexo algolia
+      - name: bangumi
+        run: pnpm hexo bangumi -u
       - name: Build
         run: pnpm run build
       - name: Upload Pages artifact
