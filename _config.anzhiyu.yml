@@ -360,10 +360,10 @@ waline:
 # Twikoo
 # https://github.com/imaegoo/twikoo
 twikoo:
-  envId: elegant-semifreddo-bc1be0.netlify.app
+  envId: https://elegant-semifreddo-bc1be0.netlify.app/
   region:
   visitor: true
-  option:
+  option: 
 
 # Artalk
 # https://artalk.js.org/guide/frontend/config.html
