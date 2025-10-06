@@ -1,8 +1,6 @@
 {
-    "cSpell.words": [
-        "Hexo",
-        "preprocess",
-        "prismjs",
-        "titlecase"
-    ]
+    "markdown.copyFiles.destination": {
+        "**/*": "/source/upload/${documentBaseName}/${unixTime}.${fileExtName}"
+    },
+    "markdown.copyFiles.overwriteBehavior": "overwrite"
 }
