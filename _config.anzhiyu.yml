@@ -361,7 +361,7 @@ waline:
 # Twikoo
 # https://github.com/imaegoo/twikoo
 twikoo:
-  envId: https://elegant-semifreddo-bc1be0.netlify.app/
+  envId: https://twikoo.imlogic.cn/
   region:
   visitor: true
   option: 
@@ -560,7 +560,7 @@ baidu_analytics: fadd4fb1de319454cad473c958d8e5c1
 
 # Google Analytics
 # https://analytics.google.com/analytics/web/
-google_analytics: G-HLQ64JJV8M
+# google_analytics: G-HLQ64JJV8M
 
 # CNZZ Analytics
 # https://www.umeng.com/
