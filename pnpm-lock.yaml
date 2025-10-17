@@ -221,8 +221,8 @@ packages:
   balanced-match@1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
 
-  bangumi-data@0.3.183:
-    resolution: {integrity: sha512-RZ3LTa5qbgpSqwWrrfkR80P4jB46VkU7JT2+ZYJYXYT3oNXWmAIoPdlSkSr9bUGG6ufScECSvcBzBhjlY/qtdA==}
+  bangumi-data@0.3.184:
+    resolution: {integrity: sha512-ZB2G9L59bk4YZfet1x8fdjYX3WN6yk+oFeFXVQ19Rfx1foJS/qMCBjLS8LN8EydtoI++S/BcvEiKuY7xMyau+Q==}
 
   basic-auth@2.0.1:
     resolution: {integrity: sha512-NF+epuEdnUYVlGuhaxbbq+dvJttwLnGY+YixlXlME5KpQ5W3CnXA5cVTneY3SPbPDRkcjMbifrwmFYcClgOZeg==}
@@ -382,8 +382,8 @@ packages:
     resolution: {integrity: sha512-cgwlv/1iFQiFnU96XXgROh8xTeetsnJiDsTc7TYCLFd9+/WNkIqPTxiM/8pSd8VIrhXGTf1Ny1q1hquVqDJB5w==}
     engines: {node: '>= 4'}
 
-  dompurify@3.2.7:
-    resolution: {integrity: sha512-WhL/YuveyGXJaerVlMYGWhvQswa7myDG17P7Vu65EWC05o8vfeNbvNf4d/BOvH99+ZW+LlQsc1GDKMa1vNK6dw==}
+  dompurify@3.3.0:
+    resolution: {integrity: sha512-r+f6MYR1gGN1eJv0TVQbhA7if/U7P87cdPl3HN5rikqaBSBxLiCb/b9O+2eG0cxz0ghyU+mU1QkbsOwERMYlWQ==}
 
   domutils@3.2.2:
     resolution: {integrity: sha512-6kZKyUajlDuqlHKVX1w7gyslj9MPIXzIFiz/rGu35uC1wMi+kMhQwGhl4lt9unC9Vb9INnY9Z3/ZA3+FhASLaw==}
@@ -1367,7 +1367,7 @@ snapshots:
 
   balanced-match@1.0.2: {}
 
-  bangumi-data@0.3.183: {}
+  bangumi-data@0.3.184: {}
 
   basic-auth@2.0.1:
     dependencies:
@@ -1552,7 +1552,7 @@ snapshots:
     dependencies:
       domelementtype: 2.3.0
 
-  dompurify@3.2.7:
+  dompurify@3.3.0:
     optionalDependencies:
       '@types/trusted-types': 2.0.7
 
@@ -1707,7 +1707,7 @@ snapshots:
     dependencies:
       '@babel/runtime': 7.28.4
       axios: 1.12.2
-      bangumi-data: 0.3.183
+      bangumi-data: 0.3.184
       cheerio: 1.1.2
       hexo-fs: 5.0.0
       hexo-i18n: 2.0.0
@@ -1785,7 +1785,7 @@ snapshots:
 
   hexo-renderer-marked@7.0.1:
     dependencies:
-      dompurify: 3.2.7
+      dompurify: 3.3.0
       hexo-util: 3.3.0
       jsdom: 25.0.1
       marked: 15.0.12
