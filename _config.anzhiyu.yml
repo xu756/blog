@@ -4,7 +4,6 @@ menu:
     标签: /tags/ || anzhiyu-icon-tags
     文档: /archives/ || anzhiyu-icon-box-archive
 
-
   友链:
     友人帐: /link/ || anzhiyu-icon-link
     朋友圈: /fcircle/ || anzhiyu-icon-artstation
@@ -75,7 +74,7 @@ social:
 author_status:
   enable: true
   # 可以是任何图片，建议放表情包或者emoji图片，效果都很好，[表情包速查](https://emotion.xiaokang.me/)
-  statusImg: "https://bu.dusays.com/2023/08/24/64e6ce9c507bb.png"
+  statusImg: 'https://bu.dusays.com/2023/08/24/64e6ce9c507bb.png'
   skills:
     - 🤖️ 数码科技爱好者
     - 🔍 分享与热心帮助
@@ -142,14 +141,14 @@ favicon: /favicon.ico
 
 # Avatar (头像)
 avatar:
-  img: /upload/avatar.jpg
+  img: /img/avatar.jpg
   effect: false
 
 # Disable all banner image
 disable_top_img: false
 
 # The banner image of home page
-index_img: "background: url(https://tool.imlogic.cn/api/random/img) top / cover no-repeat"
+# index_img: "background: url(https://tool.imlogic.cn/api/random/img) top / cover no-repeat"
 
 # If the banner of page not setting, it will show the top_img
 default_top_img: false
@@ -163,7 +162,10 @@ cover:
   # left/right/both
   position: left
   default_cover: https://tool.imlogic.cn/api/random/img
-
+  random: true
+  # 随机封面图
+  random_cover: https://cos.imlogic.cn/cdn/images/pc/%d.jpg
+  random_length: 705
 
 # Replace Broken Images (替换无法显示的图片)
 error_img:
@@ -173,7 +175,7 @@ error_img:
 # A simple 404 page
 error_404:
   enable: true
-  subtitle: "请尝试站内搜索寻找文章"
+  subtitle: '请尝试站内搜索寻找文章'
   background: https://bu.dusays.com/2023/05/08/645907596997d.gif
 
 post_meta:
@@ -196,7 +198,9 @@ mainTone:
   enable: true # true or false 文章是否启用获取图片主色调
   mode: api # cdn/api/both cdn模式为图片url+imageAve参数获取主色调，api模式为请求API获取主色调，both模式会先请求cdn参数，无法获取的情况下将请求API获取，可以在文章内配置main_color: '#3e5658'，使用十六进制颜色，则不会请求both/cdn/api获取主色调，而是直接使用配置的颜色
   # 项目地址：https://github.com/anzhiyu-c/img2color-go
-  api: https://img2color-go.vercel.app/api?img= # mode为api时可填写
+  api: https://tool.imlogic.cn/api/img2color?img= # mode为api时可填写
+  # api: https://img2color-go.vercel.app/api?img= # mode为api时可填写
+
   cover_change: true # 整篇文章跟随cover修改主色调
 
 # wordcount (字数统计)
@@ -344,7 +348,7 @@ valine:
     - xxxxx
   friends:
     - xxxxxx
-  tagMeta: "博主,小伙伴,访客"
+  tagMeta: '博主,小伙伴,访客'
   option:
 
 # waline - A simple comment system with backend support fork from Valine
@@ -364,7 +368,7 @@ twikoo:
   envId: https://twikoo.imlogic.cn/
   region:
   visitor: true
-  option: 
+  option:
 
 # Artalk
 # https://artalk.js.org/guide/frontend/config.html
@@ -423,7 +427,6 @@ crisp:
   enable: false
   website_id:
 
-
 # Footer Settings
 # --------------------------------------
 footer:
@@ -479,7 +482,7 @@ footer:
       - title: Bilibili
         link: https://space.bilibili.com/400463371
         icon: anzhiyu-icon-bilibili
-  
+
       - title: CC
         link: /copyright
         icon: anzhiyu-icon-copyright-line
@@ -610,22 +613,22 @@ site_verification:
 
 theme_color:
   enable: true
-  main: "#425AEF"
-  dark_main: "#f2b94b"
-  paginator: "#425AEF"
-  button_hover: "#FF7242"
-  text_selection: "#2128bd"
-  link_color: "var(--anzhiyu-fontcolor)"
-  meta_color: "var(--anzhiyu-fontcolor)"
-  hr_color: "#4259ef23"
-  code_foreground: "#fff"
-  code_background: "var(--anzhiyu-code-stress)"
-  toc_color: "#425AEF"
-  blockquote_padding_color: "#425AEF"
-  blockquote_background_color: "#425AEF"
-  scrollbar_color: "var(--anzhiyu-scrollbar)"
-  meta_theme_color_light: "#f7f9fe"
-  meta_theme_color_dark: "#18171d"
+  main: '#425AEF'
+  dark_main: '#f2b94b'
+  paginator: '#425AEF'
+  button_hover: '#FF7242'
+  text_selection: '#2128bd'
+  link_color: 'var(--anzhiyu-fontcolor)'
+  meta_color: 'var(--anzhiyu-fontcolor)'
+  hr_color: '#4259ef23'
+  code_foreground: '#fff'
+  code_background: 'var(--anzhiyu-code-stress)'
+  toc_color: '#425AEF'
+  blockquote_padding_color: '#425AEF'
+  blockquote_background_color: '#425AEF'
+  scrollbar_color: 'var(--anzhiyu-scrollbar)'
+  meta_theme_color_light: '#f7f9fe'
+  meta_theme_color_dark: '#18171d'
 
 # 移动端侧栏
 sidebar:
@@ -688,7 +691,7 @@ canvas_fluttering_ribbon:
 # https://github.com/hustcc/canvas-nest.js
 canvas_nest:
   enable: true
-  color: "0,0,255" #color of lines, default: '0,0,0'; RGB values: (R,G,B).(note: use ',' to separate.)
+  color: '0,0,255' #color of lines, default: '0,0,0'; RGB values: (R,G,B).(note: use ',' to separate.)
   opacity: 0.7 # the opacity of line (0~1), default: 0.5.
   zIndex: -1 # z-index property of the background, default: -1.
   count: 99 # the number of lines, default: 99.
@@ -733,7 +736,7 @@ beautify:
   enable: true
   field: post # site/post
   title-prefix-icon: '\f0c1'
-  title-prefix-icon-color: "#F47466"
+  title-prefix-icon-color: '#F47466'
 
 # Global font settings
 # Don't modify the following settings unless you know how they work (非必要不要修改)
@@ -786,8 +789,8 @@ preloader:
   # else all
   source: 3
   # pace theme (see https://codebyzach.github.io/pace/)
-  pace_css_url: 
-  avatar: /upload/avatar.jpg # 自定加载动画义头像
+  pace_css_url:
+  avatar: /img/avatar.jpg # 自定加载动画义头像
 
 # aside (侧边栏)
 # --------------------------------------
@@ -805,7 +808,7 @@ aside:
   card_author:
     enable: true
     # 默认为站点描述
-    description:  <div style="line-height:1.38;margin:0.6rem 0;text-align:justify;color:rgba(255, 255, 255, 0.8);">这有关于<b style="color:#fff">产品、设计、开发</b>相关的问题和看法，还有<b style="color:#fff">文章翻译</b>和<b style="color:#fff">分享</b>。</div><div style="line-height:1.38;margin:0.6rem 0;text-align:justify;color:rgba(255, 255, 255, 0.8);">相信你可以在这里找到对你有用的<b style="color:#fff">知识</b>和<b style="color:#fff">教程</b>。</div> 
+    description: <div style="line-height:1.38;margin:0.6rem 0;text-align:justify;color:rgba(255, 255, 255, 0.8);">这有关于<b style="color:#fff">产品、设计、开发</b>相关的问题和看法，还有<b style="color:#fff">文章翻译</b>和<b style="color:#fff">分享</b>。</div><div style="line-height:1.38;margin:0.6rem 0;text-align:justify;color:rgba(255, 255, 255, 0.8);">相信你可以在这里找到对你有用的<b style="color:#fff">知识</b>和<b style="color:#fff">教程</b>。</div>
     name_link: https://github.com/xu756
 
   card_announcement:
@@ -876,19 +879,19 @@ translate:
   # The text of a button
   default: 繁
   # Right-click menu default text
-  rightMenuMsgDefault: "轉為繁體"
+  rightMenuMsgDefault: '轉為繁體'
   # the language of website (1 - Traditional Chinese/ 2 - Simplified Chinese）
   defaultEncoding: 2
   # Time delay
   translateDelay: 0
   # The text of the button when the language is Simplified Chinese
-  msgToTraditionalChinese: "繁"
+  msgToTraditionalChinese: '繁'
   # The text of the button when the language is Traditional Chinese
-  msgToSimplifiedChinese: "简"
+  msgToSimplifiedChinese: '简'
   # Right-click the menu to traditional Chinese
-  rightMenuMsgToTraditionalChinese: "转为繁体"
+  rightMenuMsgToTraditionalChinese: '转为繁体'
   # Right-click menu to simplified Chinese
-  rightMenuMsgToSimplifiedChinese: "转为简体"
+  rightMenuMsgToSimplifiedChinese: '转为简体'
 
 # Read Mode (閲读模式)
 readmode: true
@@ -1000,8 +1003,8 @@ aplayerInject:
 snackbar:
   enable: true
   position: top-center
-  bg_light: "#425AEF" # The background color of Toast Notification in light mode
-  bg_dark: "#1f1f1f" # The background color of Toast Notification in dark mode
+  bg_light: '#425AEF' # The background color of Toast Notification in light mode
+  bg_dark: '#1f1f1f' # The background color of Toast Notification in dark mode
 
 # https://instant.page/
 # prefetch (预加载)
@@ -1056,8 +1059,8 @@ home_top:
       shadow: var(--anzhiyu-shadow-blue)
       class: blue
       icon: anzhiyu-icon-dove
-    - name: 大学
-      path: /categories/大学生涯/
+    - name: 研究生
+      path: /categories/研究生/
       shadow: var(--anzhiyu-shadow-red)
       class: red
       icon: anzhiyu-icon-fire
@@ -1117,9 +1120,9 @@ comment_barrage_config:
   # 弹幕显示间隔时间ms
   barrageTime: 4000
   # token，在控制台中获取
-  accessToken: ""
+  accessToken: ''
   # 博主邮箱md5值
-  mailMd5: ""
+  mailMd5: ''
 
 # 左下角音乐配置项
 # https://github.com/metowolf/MetingJS
@@ -1137,7 +1140,7 @@ music_page_default: nav_music
 # 评论匿名邮箱
 visitorMail:
   enable: true
-  mail: ""
+  mail: ''
 
 # ptool 文章底部工具
 ptool:
@@ -1205,10 +1208,11 @@ linkPageTop:
   enable: true
   title: 与数百名博主无限进步
   # 添加博主友链的评论自定义格式
-  addFriendPlaceholder: "昵称（请勿包含博客等字样）：\n网站地址（要求博客地址，请勿提交个人主页）：\n头像图片url（请提供尽可能清晰的图片，我会上传到我自己的图床）：\n描述：\n站点截图（可选）：\n"
+  addFriendPlaceholder:
+    "昵称（请勿包含博客等字样）：\n网站地址（要求博客地址，请勿提交个人主页）：\n头像图片url（请提供尽可能清晰的图片，我会上传到我自己的图床）：\n描述：\n站点截图（可选）：\n"
 
 # 缩略图后缀 archive/tag/category 页面单独开启后缀
-pageThumbnailSuffix: ""
+pageThumbnailSuffix: ''
 
 # 隐私协议弹窗
 agreementPopup:

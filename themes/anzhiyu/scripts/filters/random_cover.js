@@ -3,63 +3,72 @@
  * ramdom cover
  */
 
-'use strict'
+'use strict';
 
-hexo.extend.filter.register('before_post_render', data => {
-  const imgTestReg = /\.(png|jpe?g|gif|svg|webp)(\?.*)?$/i
-  let { cover: coverVal, top_img: topImg } = data
+hexo.extend.filter.register('before_post_render', (data) => {
+  const imgTestReg = /\.(png|jpe?g|gif|svg|webp)(\?.*)?$/i;
+  let { cover: coverVal, top_img: topImg } = data;
 
   // Add path to top_img and cover if post_asset_folder is enabled
   if (hexo.config.post_asset_folder) {
-    if (topImg && topImg.indexOf('/') === -1 && imgTestReg.test(topImg)) data.top_img = `${data.path}${topImg}`
-    if (coverVal && coverVal.indexOf('/') === -1 && imgTestReg.test(coverVal)) data.cover = `${data.path}${coverVal}`
+    if (topImg && topImg.indexOf('/') === -1 && imgTestReg.test(topImg)) data.top_img = `${data.path}${topImg}`;
+    if (coverVal && coverVal.indexOf('/') === -1 && imgTestReg.test(coverVal)) data.cover = `${data.path}${coverVal}`;
+  }
+  function getRandomInt(max) {
+    return Math.floor(Math.random() * (max + 1));
+  }
+  function sprintf(format, ...args) {
+    let i = 0;
+    return format.replace(/%[sd]/g, () => args[i++]);
   }
 
   const randomCoverFn = () => {
-    const { cover: { default_cover: defaultCover } } = hexo.theme.config
-    if (!defaultCover) return false
-    if (!Array.isArray(defaultCover)) return defaultCover
-    const num = Math.floor(Math.random() * defaultCover.length)
-    return defaultCover[num]
-  }
+    const {
+      cover: { default_cover: defaultCover, random_cover: randomCover, random_length: randomLength, random: random },
+    } = hexo.theme.config;
+    if (random === true) return sprintf(randomCover, getRandomInt(randomLength));
+    if (!Array.isArray(defaultCover)) return defaultCover;
+    const num = Math.floor(Math.random() * defaultCover.length);
+    return defaultCover[num];
+  };
 
-  if (coverVal === false) return data
+  if (coverVal === false) return data;
 
   const uuid = () => {
-    var timestamp = new Date().getTime()
+    var timestamp = new Date().getTime();
     return 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-      var r = (timestamp + Math.random() * 16) % 16 | 0
-      timestamp = Math.floor(timestamp / 16)
-      return (c == 'x' ? r : (r & 0x3 | 0x8)).toString(16)
-    })
-  }
+      var r = (timestamp + Math.random() * 16) % 16 | 0;
+      timestamp = Math.floor(timestamp / 16);
+      return (c == 'x' ? r : (r & 0x3) | 0x8).toString(16);
+    });
+  };
 
   const addUuidToUrl = (url) => {
     try {
-      let urlParts = new URL(url)
-      let params = urlParts.searchParams
+      let urlParts = new URL(url);
+      let params = urlParts.searchParams;
       if (params.size > 0) {
-        params.append('_r_', uuid())
+        params.append('_r_', uuid());
       } else {
-        params.set('_r_', uuid())
+        params.set('_r_', uuid());
       }
-      return urlParts.toString()
+      return urlParts.toString();
     } catch (error) {
-      return url
+      return url;
     }
-  }
+  };
 
   // If cover is not set, use random cover
   if (!coverVal) {
-    const randomCover = randomCoverFn()
-    const cover = randomCover ? addUuidToUrl(randomCover) : randomCover
-    data.cover = cover
-    coverVal = cover // update coverVal
+    const randomCover = randomCoverFn();
+    const cover = randomCover ? addUuidToUrl(randomCover) : randomCover;
+    data.cover = cover;
+    coverVal = cover; // update coverVal
   }
 
   if (coverVal && (coverVal.indexOf('//') !== -1 || imgTestReg.test(coverVal))) {
-    data.cover_type = 'img'
+    data.cover_type = 'img';
   }
 
-  return data
-})
+  return data;
+});
