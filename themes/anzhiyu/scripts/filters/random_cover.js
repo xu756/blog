@@ -14,8 +14,8 @@ hexo.extend.filter.register('before_post_render', (data) => {
     if (topImg && topImg.indexOf('/') === -1 && imgTestReg.test(topImg)) data.top_img = `${data.path}${topImg}`;
     if (coverVal && coverVal.indexOf('/') === -1 && imgTestReg.test(coverVal)) data.cover = `${data.path}${coverVal}`;
   }
-  function getRandomInt(max) {
-    return Math.floor(Math.random() * (max + 1));
+  function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
   }
   function sprintf(format, ...args) {
     let i = 0;
@@ -26,7 +26,7 @@ hexo.extend.filter.register('before_post_render', (data) => {
     const {
       cover: { default_cover: defaultCover, random_cover: randomCover, random_length: randomLength, random: random },
     } = hexo.theme.config;
-    if (random === true) return sprintf(randomCover, getRandomInt(randomLength));
+    if (random === true) return sprintf(randomCover, getRandomInt(1, randomLength));
     if (!Array.isArray(defaultCover)) return defaultCover;
     const num = Math.floor(Math.random() * defaultCover.length);
     return defaultCover[num];
