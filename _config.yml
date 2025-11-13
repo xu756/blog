@@ -2,9 +2,9 @@
 title: '故里有长安'
 subtitle: '愿你眼里有星辰，心中有暖阳'
 description: '这有关于产品、设计、开发相关的问题和看法，还有文章翻译和分享。相信你可以在这里找到对你有用的知识和教程。'
-keywords: 
- - '博客'
- - '开发'
+keywords:
+  - '博客'
+  - '开发'
 author: 'xu756'
 language: zh-CN
 timezone: 'Asia/Shanghai'
@@ -27,7 +27,18 @@ category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
+# 启用调试模式输出
+debug: true
+lazyload:
+  enable: false # 关闭懒加载加速调试
 
+browsersync:
+  logLevel: 'warn'
+  ghostMode:
+    scroll: true
+  instanceName: 'uniqueString'
+console:
+  enable: false
 # Writing
 new_post_name: :title.md # File name of new posts
 default_layout: post
@@ -105,17 +116,6 @@ theme: anzhiyu
 deploy:
   type: ''
 
-
-
-
-
-
-
-
-
-
-
-
 # 留言板页面配置
 envelope_comment:
   enable: true #控制开关
@@ -138,12 +138,6 @@ envelope_comment:
     top_img: false
     type: envelope
 
-
-
-
-
-
-
 # 追番插件
 # https://github.com/HCLonely/hexo-bilibili-bangumi
 bangumi: # 追番设置
@@ -151,8 +145,8 @@ bangumi: # 追番设置
   source: bili
   path:
   vmid: 400463371
-  title: "追番列表"
-  quote: "生命不息，追番不止！"
+  title: '追番列表'
+  quote: '生命不息，追番不止！'
   show: 1
   lazyload: false
   loading:
@@ -164,22 +158,12 @@ bangumi: # 追番设置
   progress:
   extraOrder:
   proxy:
-    host: "代理host"
-    port: "代理端口"
+    host: '代理host'
+    port: '代理端口'
   extra_options:
     top_img: false
     lazyload:
       enable: false
-
-
-
-
-
-
-
-
-
-
 
 # APlayer 音乐馆页配置
 # https://github.com/MoePlayer/hexo-tag-aplayer/blob/master/docs/README-zh_cn.md
@@ -187,18 +171,14 @@ aplayer:
   meting: true
   asset_inject: false
 
-
-
-
-
 # 搜索
 
 algolia:
-  appId: "T0FCW5OHDM"
-  apiKey: "e52a814c45070bee32c6c24dc318cc1f"
-  adminApiKey: "38daa30b0b728022db6974b6824270f5"
+  appId: 'T0FCW5OHDM'
+  apiKey: 'e52a814c45070bee32c6c24dc318cc1f'
+  adminApiKey: '38daa30b0b728022db6974b6824270f5'
   chunkSize: 5000
-  indexName: "xu756-blog"
+  indexName: 'xu756-blog'
   fields:
     - content:strip:truncate,0,500
     - excerpt:strip
@@ -208,3 +188,53 @@ algolia:
     - slug
     - tags
     - title
+
+markdown:
+  images:
+    prepend_root: true
+    post_asset: true
+  preset: 'default'
+  render:
+    html: true
+    xhtmlOut: false
+    langPrefix: 'language-'
+    breaks: true
+    linkify: true
+    typographer: true
+    quotes: '“”‘’'
+  enable_rules:
+  disable_rules:
+  plugins:
+    - markdown-it-abbr
+    - markdown-it-cjk-breaks
+    - markdown-it-deflist
+    - markdown-it-emoji
+    - markdown-it-footnote
+    - markdown-it-ins
+    - markdown-it-mark
+    - markdown-it-sub
+    - markdown-it-sup
+    - markdown-it-checkbox
+    - markdown-it-imsize
+    - markdown-it-expandable
+    - '@renbaoshuo/markdown-it-katex'
+    - name: '@renbaoshuo/markdown-it-katex'
+      options:
+        skipDelimitersCheck: true
+    - name: markdown-it-container
+      options: success
+    - name: markdown-it-container
+      options: tips
+    - name: markdown-it-container
+      options: warning
+    - name: markdown-it-container
+      options: danger
+  anchors:
+    level: 2
+    collisionSuffix: ''
+    permalink: false
+    permalinkClass: 'header-anchor'
+    permalinkSide: 'left'
+    permalinkSymbol: '¶'
+    case: 0
+    separator: '-'

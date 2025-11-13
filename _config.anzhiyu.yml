@@ -1055,12 +1055,12 @@ home_top:
   siteText: anheyu.com
   category:
     - name: 前端
-      path: /categories/前端开发/
+      path: /categories/前端/
       shadow: var(--anzhiyu-shadow-blue)
       class: blue
       icon: anzhiyu-icon-dove
-    - name: 研究生
-      path: /categories/研究生/
+    - name: 学习
+      path: /categories/学习/
       shadow: var(--anzhiyu-shadow-red)
       class: red
       icon: anzhiyu-icon-fire

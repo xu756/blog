@@ -1,6 +1,6 @@
 {
     "markdown.copyFiles.destination": {
-        "**/*": "/source/upload/images/${unixTime}.${fileExtName}"
+        "**/*": "/source/images/${unixTime}.${fileExtName}"
     },
     "markdown.copyFiles.overwriteBehavior": "overwrite"
 }
