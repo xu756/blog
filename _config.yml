@@ -203,6 +203,8 @@ markdown:
     typographer: true
     quotes: '“”‘’'
   enable_rules:
+  inline: false # https://markdown-it.github.io/markdown-it/#MarkdownIt.renderInline
+
   disable_rules:
   plugins:
     - markdown-it-abbr
@@ -221,6 +223,8 @@ markdown:
     - name: '@renbaoshuo/markdown-it-katex'
       options:
         skipDelimitersCheck: true
+        strict: false
+
     - name: markdown-it-container
       options: success
     - name: markdown-it-container
