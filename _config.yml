@@ -5,6 +5,10 @@ description: '这有关于产品、设计、开发相关的问题和看法，还
 keywords:
   - '博客'
   - '开发'
+  - '生活'
+  - '人工智能'
+  - '学习'
+  - '代码'
 author: 'xu756'
 language: zh-CN
 timezone: 'Asia/Shanghai'
@@ -12,7 +16,7 @@ timezone: 'Asia/Shanghai'
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
 url: https://blog.xu756.top/
-permalink: :year/:month/:day/:timestamp/
+permalink: /p/:year:month:day:hour:minute:second
 permalink_defaults:
 pretty_urls:
   trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
@@ -28,7 +32,7 @@ code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
 # 启用调试模式输出
-debug: true
+debug: false
 lazyload:
   enable: false # 关闭懒加载加速调试
 
