@@ -18,6 +18,8 @@ jobs:
       - uses: pnpm/action-setup@v2
         with:
           version: 10.6.3
+      - name: 显示source/_posts 所有文件的更新时间
+        run: find source/_posts -type f -name "*.md" -exec stat -f "%Sm %N" -t "%Y-%m-%d %H:%M:%S" {} + | sort -r
       - uses: actions/setup-node@v4
         with:
           node-version: 22
