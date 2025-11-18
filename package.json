@@ -31,13 +31,13 @@
     "hexo-util": "^4.0.0",
     "hexo-wordcount": "^6.0.1",
     "katex": "^0.16.25",
+    "hexo-server": "^3.0.0",
     "markdown-it": "^14.1.0",
     "markdown-it-checkbox": "^1.1.0",
     "markdown-it-expandable": "^1.0.2",
     "markdown-it-imsize": "^2.0.1"
   },
   "devDependencies": {
-    "hexo-server": "^3.0.0",
     "hexo-deployer-git": "^4.0.0",
     "hexo-browsersync": "^0.3.0"
   }
