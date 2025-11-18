@@ -19,7 +19,6 @@
     "hexo-asset-img": "1.2.0",
     "hexo-bilibili-bangumi": "^2.0.1",
     "hexo-butterfly-envelope": "^1.0.15",
-    "hexo-deployer-git": "^4.0.0",
     "hexo-generator-archive": "^2.0.0",
     "hexo-generator-category": "^2.0.0",
     "hexo-generator-index": "^4.0.0",
@@ -28,7 +27,6 @@
     "hexo-renderer-markdown-it": "^7.1.1",
     "hexo-renderer-pug": "^3.0.0",
     "hexo-renderer-stylus": "^3.0.1",
-    "hexo-server": "^3.0.0",
     "hexo-theme-landscape": "^1.1.0",
     "hexo-util": "^4.0.0",
     "hexo-wordcount": "^6.0.1",
@@ -39,6 +37,8 @@
     "markdown-it-imsize": "^2.0.1"
   },
   "devDependencies": {
+    "hexo-server": "^3.0.0",
+    "hexo-deployer-git": "^4.0.0",
     "hexo-browsersync": "^0.3.0"
   }
 }
