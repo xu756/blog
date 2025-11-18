@@ -35,4 +35,7 @@ jobs:
       - name: algolia
         run: pnpm hexo algolia
       - name: Deploy
-        run: pnpm run deploy
+        run: |
+          git config --global user.email "756334744@qq.com"
+          git config --global user.name "xu756"
+          pnpm run deploy
