@@ -38,5 +38,6 @@ jobs:
         run: |
           git config --global user.email "756334744@qq.com"
           git config --global user.name "xu756"
+          git config --global user.password ${{ secrets.GITHUB_TOKEN }}
       - name: Deploy
         run: pnpm run deploy
