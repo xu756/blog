@@ -164,7 +164,7 @@ cover:
   default_cover: https://tool.imlogic.cn/api/random/img
   random: true
   # 随机封面图
-  random_cover: https://cos.imlogic.cn/cdn/images/pc/%d.jpg
+  random_cover: https://cos.imlogic.cn/cdn/blog/compress/%d.webp
   random_length: 705
 
 # Replace Broken Images (替换无法显示的图片)
