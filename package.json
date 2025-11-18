@@ -38,7 +38,6 @@
     "markdown-it-imsize": "^2.0.1"
   },
   "devDependencies": {
-    "hexo-deployer-git": "^4.0.0",
     "hexo-browsersync": "^0.3.0"
   }
 }

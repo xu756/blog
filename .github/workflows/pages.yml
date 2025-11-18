@@ -9,13 +9,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           # If your repository depends on submodule, please see: https://github.com/actions/checkout
           submodules: recursive
       # 使用npm安装依赖
-      - uses: pnpm/action-setup@v2
+      - uses: pnpm/action-setup@v3
         with:
           version: 10.6.3
       - name: 显示source/_posts 所有文件的更新时间
@@ -34,10 +34,20 @@ jobs:
 
       - name: algolia
         run: pnpm hexo algolia
-      - name: Git配置邮箱
-        run: |
-          git config --global user.email "756334744@qq.com"
-          git config --global user.name "xu756"
-          git config --global user.password ${{ secrets.GITHUB_TOKEN }}
-      - name: Deploy
-        run: pnpm run deploy
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./public
+  deploy:
+    needs: build
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
