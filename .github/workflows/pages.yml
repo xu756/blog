@@ -15,10 +15,10 @@ jobs:
           # If your repository depends on submodule, please see: https://github.com/actions/checkout
           submodules: recursive
           fetch-depth: '0'
-      # - name: Restore file modification time
-      #   run: |
-      #     git config --global core.quotepath false
-      #     git ls-files --directory source | while read path; do touch -d "$(git log -1 --format='@%ct' $path)" "$path"; done
+      - name: Restore file modification time
+        run: |
+          git config --global core.quotepath false
+          git ls-files --directory source | while read path; do touch -d "$(git log -1 --format='@%ct' $path)" "$path"; done
       # 使用npm安装依赖
       - uses: pnpm/action-setup@v3
         with:
@@ -34,8 +34,8 @@ jobs:
         run: pnpm hexo bangumi -u
       - name: Build
         run: pnpm run build
-      - name: algolia
-        run: pnpm hexo algolia
+      # - name: algolia
+      # run: pnpm hexo algolia
       # 步骤 5：部署到 GitHub Pages (部署到 gh-pages 分支)
       - name: Deploy to GitHub Pages # 使用 Hexo 部署到 GitHub Pages
         env:
