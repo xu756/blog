@@ -28,7 +28,7 @@ jobs:
       - name: Install Dependencies
         run: pnpm install
       - name: bangumi
-        run: pnpm hexo bangumi -u
+        run: pnpm clean && pnpm hexo bangumi -u
       - name: Build
         run: pnpm run build
       - name: 查看index.html
