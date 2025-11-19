@@ -38,7 +38,7 @@ jobs:
           ssh-keyscan github.com >> ~/.ssh/known_hosts  # 添加 GitHub 的 SSH 公钥到 known_hosts
           git config --global user.name "$GIT_NAME"     # 配置 Git 用户名
           git config --global user.email "$GIT_EMAIL"    # 配置 Git 用户邮箱
-          git ls-files -z | while read -d '' path; do touch -d "\$(git log -1 --format="@%ct" "\$path")" "\$path"; done
+          git ls-files -z | xargs -0 -I {} bash -c 'ts=$(git log -1 --format="@%ct" -- "{}" 2>/dev/null); [ -n "$ts" ] && touch -d "$ts" "{}"'
           pnpm hexo clean
           pnpm hexo bangumi -u
           pnpm hexo deploy                                   # 使用 Hexo 部署博客
