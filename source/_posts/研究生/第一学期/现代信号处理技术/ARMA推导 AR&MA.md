@@ -2,6 +2,7 @@
 layout: posts
 title: ARMA推导 AR&MA
 date: 2025-11-13 23:33:24
+updated: 2025-11-17 11:18:27
 categories: 模型
 tags: 
     - 研究生

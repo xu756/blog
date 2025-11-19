@@ -2,6 +2,7 @@
 layout: posts
 title: ARMA模型
 date: 2025-11-13 23:09:24
+updated: 2025-11-17 11:17:06
 categories: 模型
 tags: 
     - 研究生

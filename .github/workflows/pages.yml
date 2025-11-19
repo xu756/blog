@@ -14,6 +14,11 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           # If your repository depends on submodule, please see: https://github.com/actions/checkout
           submodules: recursive
+          fetch-depth: '0'
+      - name: Restore file modification time
+        run: |
+          git config --global core.quotepath false
+          git ls-files --directory source | while read path; do touch -d "$(git log -1 --format='@%ct' $path)" "$path"; done
       # 使用npm安装依赖
       - uses: pnpm/action-setup@v3
         with:
@@ -38,7 +43,7 @@ jobs:
           ssh-keyscan github.com >> ~/.ssh/known_hosts  # 添加 GitHub 的 SSH 公钥到 known_hosts
           git config --global user.name "$GIT_NAME"     # 配置 Git 用户名
           git config --global user.email "$GIT_EMAIL"    # 配置 Git 用户邮箱
-          git ls-files -z | xargs -0 -I {} bash -c 'ts=$(git log -1 --format="@%ct" -- "{}" 2>/dev/null); [ -n "$ts" ] && touch -d "$ts" "{}"'
+          # git ls-files -z | xargs -0 -I {} bash -c 'ts=$(git log -1 --format="@%ct" -- "{}" 2>/dev/null); [ -n "$ts" ] && touch -d "$ts" "{}"'
           pnpm hexo clean
           pnpm hexo bangumi -u
           pnpm hexo deploy                                   # 使用 Hexo 部署博客
