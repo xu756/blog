@@ -15,10 +15,10 @@ jobs:
           # If your repository depends on submodule, please see: https://github.com/actions/checkout
           submodules: recursive
           fetch-depth: '0'
-      - name: Restore file modification time
-        run: |
-          git config --global core.quotepath false
-          git ls-files --directory source | while read path; do touch -d "$(git log -1 --format='@%ct' $path)" "$path"; done
+      # - name: Restore file modification time
+      #   run: |
+      #     git config --global core.quotepath false
+      #     git ls-files --directory source | while read path; do touch -d "$(git log -1 --format='@%ct' $path)" "$path"; done
       # 使用npm安装依赖
       - uses: pnpm/action-setup@v3
         with:
@@ -29,7 +29,13 @@ jobs:
           cache: 'pnpm'
           cache-dependency-path: './pnpm-lock.yaml'
       - name: Install Dependencies
-        run: pnpm install && pnpm hexo bangumi -u &&  pnpm build && pnpm hexo algolia
+        run: pnpm install
+      - name: bangumi
+        run: pnpm hexo bangumi -u
+      - name: Build
+        run: pnpm run build
+      - name: algolia
+        run: pnpm hexo algolia
       # 步骤 5：部署到 GitHub Pages (部署到 gh-pages 分支)
       - name: Deploy to GitHub Pages # 使用 Hexo 部署到 GitHub Pages
         env:
@@ -44,4 +50,4 @@ jobs:
           git config --global user.name "$GIT_NAME"     # 配置 Git 用户名
           git config --global user.email "$GIT_EMAIL"    # 配置 Git 用户邮箱
           git ls-files -z | xargs -0 -I {} bash -c 'ts=$(git log -1 --format="@%ct" -- "{}" 2>/dev/null); [ -n "$ts" ] && touch -d "$ts" "{}"'
-          pnpm run deploy                                   # 使用 Hexo 部署博客
+          pnpm hexo deploy                                   # 使用 Hexo 部署博客
