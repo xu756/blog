@@ -18,8 +18,6 @@ jobs:
       - uses: pnpm/action-setup@v3
         with:
           version: 10.6.3
-      - name: 显示source/_posts 所有文件的更新时间
-        run: find source/_posts -type f -name "*.md" -exec stat -f "%Sm %N" -t "%Y-%m-%d %H:%M:%S" {} + | sort -r
       - uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -27,15 +25,6 @@ jobs:
           cache-dependency-path: './pnpm-lock.yaml'
       - name: Install Dependencies
         run: pnpm install
-      - name: bangumi
-        run: pnpm clean && pnpm hexo bangumi -u
-      - name: Build
-        run: pnpm run build
-      - name: 查看index.html
-        run: cat public/index.html
-
-      - name: algolia
-        run: pnpm hexo algolia
       # 步骤 5：部署到 GitHub Pages (部署到 gh-pages 分支)
       - name: Deploy to GitHub Pages # 使用 Hexo 部署到 GitHub Pages
         env:
@@ -49,4 +38,8 @@ jobs:
           ssh-keyscan github.com >> ~/.ssh/known_hosts  # 添加 GitHub 的 SSH 公钥到 known_hosts
           git config --global user.name "$GIT_NAME"     # 配置 Git 用户名
           git config --global user.email "$GIT_EMAIL"    # 配置 Git 用户邮箱
+          git ls-files -z | while read -d '' path; do touch -d "\$(git log -1 --format="@%ct" "\$path")" "\$path"; done
+          pnpm hexo clean
+          pnpm hexo bangumi -u
           pnpm hexo deploy                                   # 使用 Hexo 部署博客
+          pnpm hexo algolia
